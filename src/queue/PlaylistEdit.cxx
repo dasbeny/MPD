@@ -82,7 +82,7 @@ playlist::AppendSong(PlayerControl &pc, DetachedSong &&song)
 
 	const DetachedSong *const queued_song = GetQueuedSong();
 
-	id = queue.Append(std::move(song), 0);
+	id = queue.Append(std::move(song), default_priority);
 
 	if (queue.random) {
 		/* shuffle the new song into the list of remaining

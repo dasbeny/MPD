@@ -28,6 +28,12 @@ struct playlist {
 	QueueListener &listener;
 
 	/**
+	 * The priority assigned to newly added songs (configured
+	 * with "default_priority").
+	 */
+	const uint8_t default_priority;
+	
+	/**
 	 * This value is true if the player is currently playing (or
 	 * should be playing).
 	 */
@@ -76,10 +82,11 @@ struct playlist {
 	 */
 	int queued = -1;
 
-	playlist(unsigned max_length,
+	playlist(unsigned max_length, uint8_t _default_priority,
 		 QueueListener &_listener) noexcept
 		:queue(max_length),
-		 listener(_listener)
+		 listener(_listener),
+		 default_priority(_default_priority)
 	{
 	}
 

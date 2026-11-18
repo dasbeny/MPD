@@ -48,6 +48,7 @@ const ConfigTemplate config_param_templates[] = {
 	{ "connection_timeout" },
 	{ "max_connections" },
 	{ "max_playlist_length" },
+	{ "default_priority" },
 	{ "max_command_list_size" },
 	{ "max_output_buffer_size" },
 	{ "filesystem_charset" },

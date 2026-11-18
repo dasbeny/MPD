@@ -3,6 +3,7 @@
 
 #include "PartitionConfig.hxx"
 #include "Data.hxx"
+#include "QueueConfig.hxx"
 
 PartitionConfig::PartitionConfig(const ConfigData &config)
 	:player(config)
@@ -17,4 +18,9 @@ PartitionConfig::PartitionConfig(const ConfigData &config)
 		   worse, an integer overflow because the allocation
 		   size is larger than SIZE_MAX) */
 		queue.max_length = QueueConfig::MAX_MAX_LENGTH;
+	
+	queue.default_priority =
+		config.GetPositive(ConfigOption::DEFAULT_PRIORITY, 0);
+	if (queue.default_priority>255)
+		queue.default_priority = 255;
 }
